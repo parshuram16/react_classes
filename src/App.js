@@ -6,6 +6,9 @@ import TableComponent from "./components/functional/tables/tables.js"
 import ListComponent from "./components/functional/lists/lists.js"
 import FormComponent from "./components/functional/forms/forms.js"
 import CardComponent from "./components/functional/cards/cards.js"
+import ListnewComponent from "./components/functional/listnew/list-component.js"
+import OrderList from "./components/functional/listnew/ordered.list.js"
+
 
 const App = () => {
 
@@ -13,33 +16,9 @@ const App = () => {
     <div>
 
       <h2>hello world</h2>
-      <ImageComponent/>
-      <ButtonComponent/>
-      <ImageComponent/>
-      <ButtonComponent/>
-      <ImageComponent/>
-      <ButtonComponent/>
-      <ImageComponent/>
-      <ButtonComponent/>
-      <br/><br/><br/><br/>
-      <h4>Tables:</h4>
-      <TableComponent/>
-
-      <br/><br/><br/><br/>
-      <h4>Lists:</h4>
-      <ListComponent/>
-
-      <br/><br/><br/><br/>
-      <h4>Forms:</h4>
-      <FormComponent/>
-
-
-      <br/><br/><br/><br/>
-      <h4>Cards:</h4>
-      <CardComponent/>
-
-
-
+      <ListnewComponent/>
+      <OrderList/>
+      
     </div>
 
 
