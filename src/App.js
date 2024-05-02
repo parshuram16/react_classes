@@ -1,45 +1,8 @@
-import Counter from "./components/class/counter/counter"
-import ButtonNew from "./components/functional/button1/button1"
-import { buttonArray } from "./constants/buttonData"
 
 
+import CardFake from "./tasks/task-01-05-24/cardfake"
+import { FakedataArray } from "./tasks/task-01-05-24/fakedata"
 
-
-
-
-// const App = () => {
-
-//   return(
-//     <div>
-
-//       {
-//         buttonArray.map( (eachbutton)=>{
-
-//           const {text,width,height,bgColor,id}=eachbutton
-
-//           return(
-
-//             <ButtonNew
-//             key={id} 
-            
-//             text={text} bgColor={bgColor} buttonProperties={
-//               {
-//                 width:width,
-//                 height:height
-//               }
-//             }/>
-//           )
-
-//         })
-//       }
-      
-//     </div>
-
-
-//   )
-// }
-
-// export default App
 
 
 const App = () => {
@@ -47,7 +10,25 @@ const App = () => {
   return(
     <div>
 
-     <Counter/> 
+    {
+
+  FakedataArray.map( (data)=>{
+
+    const {title,price,image,id}=data
+
+    return(
+
+      <>
+
+      <CardFake id={id} title={title} price={price} image={image}/>
+      
+      </>
+    )
+
+  })
+
+    }
+
     </div>
 
 
