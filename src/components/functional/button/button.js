@@ -140,6 +140,32 @@
 
 
 
+// const ButtonComponent=()=>{
+
+
+//     const addedToCart = true
+
+//     return(
+
+//         <>
+//         {
+//             addedToCart
+//             ?
+//             <button>move to cart</button>
+//             :
+//             <button>add to cart</button>
+
+//         }
+        
+//         </>
+//     )
+// }
+
+// export default ButtonComponent
+
+
+
+
 const ButtonComponent=()=>{
 
 
@@ -162,7 +188,6 @@ const ButtonComponent=()=>{
 }
 
 export default ButtonComponent
-
 
 
 
