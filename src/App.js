@@ -1,7 +1,7 @@
+import TdCompnent from "./components/class/todo/td"
+import TodoComponent from "./components/class/todo/todo"
 
 
-import CardFake from "./tasks/task-01-05-24/cardfake"
-import { FakedataArray } from "./tasks/task-01-05-24/fakedata"
 
 
 
@@ -10,25 +10,9 @@ const App = () => {
   return(
     <div>
 
-    {
+    <TodoComponent/>
 
-  FakedataArray.map( (data)=>{
-
-    const {title,price,image,id}=data
-
-    return(
-
-      <>
-
-      <CardFake id={id} title={title} price={price} image={image}/>
-      
-      </>
-    )
-
-  })
-
-    }
-
+    {/* <TdCompnent/> */}
     </div>
 
 
