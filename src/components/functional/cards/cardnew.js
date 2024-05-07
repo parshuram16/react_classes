@@ -6,7 +6,7 @@ const CardNew=(props)=>{
 
   console.log(props)
 
-  const {title,description,image}=props.product
+  const {title,description,image}=props.products
 
 
     return(

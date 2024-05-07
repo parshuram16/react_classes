@@ -1,4 +1,5 @@
-import DisplayDataOne from "./tasks/task-07.05.24-data-buttons/displaydata"
+import DisplaySelectedData from "./tasks/task-06.05-selected data/displayedselectedData"
+
 
 
 
@@ -9,7 +10,7 @@ const App =()=>{
   return(
     <div>
 
-    <DisplayDataOne/>
+    <DisplaySelectedData/>
       
   
     </div>
