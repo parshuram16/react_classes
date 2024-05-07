@@ -1,0 +1,53 @@
+
+
+
+
+.todbg{
+
+    background-color: aqua;
+    background-size: cover;
+    padding: 20px;
+    text-align: center;
+    
+
+
+
+}
+
+.todoheading{
+
+    color: blue;
+    text-decoration: underline;
+}
+
+.theading{
+
+    color: rgb(240, 9, 136);
+}
+
+
+
+.addbtn{
+    color: white;
+    background-color: green;
+    border-radius: 5px;
+}
+
+.clrbtn{
+    color: white;
+    background-color: red;
+    border-radius: 5px;
+}
+
+.delbtn{
+    color: white;
+    background-color: orange;
+    border-radius: 5px;
+}
+
+.updatebtn{
+    color: white;
+    background-color: yellowgreen;
+    border-radius: 5px;
+}
+

@@ -1,14 +1,19 @@
+
+
+import "./todo.css"
+
+
 import React, { Component } from "react";
 
 
 
 
 
-class TdCompnent extends Component{
+class TodoCompnentTask extends Component{
 
     state={
 
-        // todos:["apple","banana"]
+    
 
         todos:[
             {
@@ -99,11 +104,11 @@ class TdCompnent extends Component{
 
         return(
 
-            <>
+            <div className="todbg">
 
-            <h1>todo component</h1>
-            <button onClick={this.addTodos}>add todo</button>
-            <button onClick={this.clearAllTodos}>clear all todos</button>
+            <h1 className="todoheading">todo component</h1>
+            <button className="addbtn" onClick={this.addTodos}>add todo</button>
+            <button className="clrbtn" onClick={this.clearAllTodos}>clear all todos</button>
 
             {
                 this.state.todos.map( (eachItem,index)=>{
@@ -115,9 +120,9 @@ class TdCompnent extends Component{
 
                         <React.Fragment key={id}>
 
-                        <h3>{index+1} {name}</h3>
-                        <button onClick={()=>this.deleteSelectedTodo(index)}>delete todo</button>
-                        <button onClick={()=>this.updateSelectedTodo(index)}>update todo</button>
+                        <h3 className="theading">{index+1} {name}</h3>
+                        <button className="delbtn" onClick={()=>this.deleteSelectedTodo(index)}>delete todo</button>
+                        <button className="updatebtn" onClick={()=>this.updateSelectedTodo(index)}>update todo</button>
                         
                         
                         </React.Fragment>
@@ -127,9 +132,9 @@ class TdCompnent extends Component{
                 })
             }
             
-            </>
+            </div>
         )
     }
 }
 
-export default TdCompnent
+export default TodoCompnentTask

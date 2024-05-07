@@ -1,5 +1,6 @@
-import TdCompnent from "./components/class/todo/td"
-import TodoComponent from "./components/class/todo/todo"
+import Mounting from "./components/class/life cycle/mounting phase/mounting.js"
+
+
 
 
 
@@ -10,9 +11,8 @@ const App = () => {
   return(
     <div>
 
-    <TodoComponent/>
-
-    {/* <TdCompnent/> */}
+      <Mounting color={"green"}/>
+  
     </div>
 
 

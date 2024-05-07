@@ -4,7 +4,7 @@
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
-function ModelComponent() {
+function ReactCourosel() {
   return (
     <div
       className="modal show"
@@ -28,4 +28,4 @@ function ModelComponent() {
   );
 }
 
-export default ModelComponent
+export default ReactCourosel;
