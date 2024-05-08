@@ -1,4 +1,6 @@
-import DisplaySelectedData from "./tasks/task-06.05-selected data/displayedselectedData"
+
+import ProductListing from "./components/class/products/products"
+
 
 
 
@@ -10,8 +12,7 @@ const App =()=>{
   return(
     <div>
 
-    <DisplaySelectedData/>
-      
+      <ProductListing/>
   
     </div>
 
