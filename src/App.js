@@ -1,18 +1,16 @@
 
-import ProductListing from "./components/class/products/products"
-
-
+import Counter from "./components/functional/counter/counter"
 
 
 
 
 const App =()=>{
-
   
+
   return(
     <div>
 
-      <ProductListing/>
+      <Counter/>
   
     </div>
 

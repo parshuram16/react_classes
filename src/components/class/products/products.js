@@ -73,6 +73,7 @@ class ProductListing extends Component{
     filterButtons=async (selected)=>{
 
         this.setState({
+            
             loading:true
         })
 
