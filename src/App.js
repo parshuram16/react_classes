@@ -1,5 +1,5 @@
 
-import Counter from "./components/functional/counter/counter"
+import UserForm from "./components/functional/forms/userForms"
 
 
 
@@ -10,7 +10,7 @@ const App =()=>{
   return(
     <div>
 
-      <Counter/>
+      <UserForm/>
   
     </div>
 
