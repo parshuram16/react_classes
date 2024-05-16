@@ -1,5 +1,6 @@
 
-import UserForm from "./components/functional/forms/userForms"
+import LoginForm from "./components/functional/forms/loginForm"
+
 
 
 
@@ -10,7 +11,7 @@ const App =()=>{
   return(
     <div>
 
-      <UserForm/>
+      <LoginForm/>
   
     </div>
 
