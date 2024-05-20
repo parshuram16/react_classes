@@ -1,5 +1,6 @@
 
-import LoginForm from "./components/functional/forms/loginForm"
+
+import UseEffect1 from "./components/functional/useEffect/useEffectEx1"
 
 
 
@@ -11,7 +12,7 @@ const App =()=>{
   return(
     <div>
 
-      <LoginForm/>
+      <UseEffect1/>
   
     </div>
 
