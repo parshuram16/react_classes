@@ -1,9 +1,6 @@
 
 
-import UseEffect1 from "./components/functional/useEffect/useEffectEx1"
-
-
-
+import Navigationstack from "./navigations/navigations-stack"
 
 
 const App =()=>{
@@ -12,7 +9,7 @@ const App =()=>{
   return(
     <div>
 
-      <UseEffect1/>
+      <Navigationstack/>
   
     </div>
 
