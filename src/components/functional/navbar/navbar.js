@@ -1,19 +1,34 @@
+import { useContext } from "react"
 import { Link } from "react-router-dom"
+import { themeInfo, userInfo } from "../../../navigations/navigations-stack"
 
 
 
 const NavBar=()=>{
 
+  const {name} =useContext(userInfo)
+
+  const {
+    darkMode,
+    count
+
+  } = useContext(themeInfo)
+  
+
   const linkStyle={
 
     textDecoration: "none",
-    color:"black"
+    color:darkMode?"white":"black"
+
   }
 
 
     return(
 
-    <nav className="navbar navbar-inverse">
+    <nav  
+    class={darkMode ?"navbar navbar-expand-sm bg-dark navbar-dark":"navbar navbar-expand-sm bg-light navbar-light"}
+    
+    >
   <div className="container-fluid">
     
     <ul className="navbar-nav">
@@ -21,7 +36,7 @@ const NavBar=()=>{
       <li className="nav-item nav-link">
 
         <Link to={"/"}  style={linkStyle} >
-        Home
+        {name}
         </Link>
         
       </li>
@@ -45,7 +60,7 @@ const NavBar=()=>{
       <li className="nav-item nav-link">
 
       <Link to={"/blog"} style={linkStyle} >
-      Blog
+       cart {count}
         </Link>
       
         
