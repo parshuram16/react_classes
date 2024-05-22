@@ -11,32 +11,38 @@ import ProductDetails from '../screens/product-details'
 
 
 export const userInfo=createContext()
-
 export const themeInfo=createContext()
 
 
+const initialState={
+
+  count:0,
+  name:"sai",
+  designation:"",
+  subjects:["react","angular"]
+}
+
 const reducerFn=(state,action)=>{
+
 
   switch(action.type){
 
-    case "INCREMENT_ACTION":
+    case "INCREMENT":
       return {...state,count:state.count+1}
-      default :
-       return state
+    case "DECREMENT":
+      return {...state,count:state.count-1}
+    case "CHANGE_NAME":
+      return {...state,name:"vijay"}
+
+    case "ADD_SUBJECT":
+      return {...state,subjects:[...state.subjects,action.payload]}
+    default :
+      return state
+
   }
 
 
 }
-
-const initialState={
-
-  count:0
-
-}
-
-
-
-
 
 
 
@@ -54,19 +60,60 @@ function Navigationstack() {
 
   const [currentState,dispatch]=useReducer(reducerFn,initialState)
 
+  
+
   const handleDarkLightModes=()=>{
 
     setDarkMode(!darkMode)
   }
 
-  const incrementAction=()=>{
 
-    dispatch({
+  const handleIncrement=()=>{
 
-      type:"INCREMENT_ACTION"
+    dispatch(
+      {
+        type:"INCREMENT"
+    }
+  )
 
-    })
+  dispatch(
+    {
+      type:"CHANGE_NAME"
   }
+)
+
+  }
+
+
+  const handleDecrement=()=>{
+
+    dispatch(
+      {
+        type:"DECREMENT"
+    }
+  )
+  }
+
+  const handleChangeName=()=>{
+
+    dispatch(
+      {
+        type:"CHANGE_NAME"
+    }
+  )
+  }
+
+  const subjectAdd=(subject)=>{
+
+    dispatch(
+      {
+        type:"ADD_SUBJECT",
+        payload:subject
+    }
+  )
+  }
+
+  
 
   const incrementCounter=(value=1)=>{
 
@@ -86,8 +133,12 @@ function Navigationstack() {
       handleDarkLightModes,
       incrementCounter,
       count,
-      incrementAction,
-      currentState
+      currentState,
+      handleIncrement,
+      handleDecrement,
+      handleChangeName,
+      subjectAdd
+      
 
 
     }

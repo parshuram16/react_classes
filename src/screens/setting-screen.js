@@ -10,7 +10,12 @@ function SettingScreen() {
 
   const {
     handleDarkLightModes,
-    incrementCounter
+    incrementCounter,
+    handleIncrement,
+    handleDecrement,
+    currentState,
+    handleChangeName,
+    subjectAdd
 
 } =useContext(themeInfo)
 
@@ -20,11 +25,18 @@ function SettingScreen() {
 
     handleDarkLightModes()
 
+
   }
 
-  const handleIncrement=()=>{
+  // const handleIncrement=()=>{
 
-    incrementCounter(10)
+  //   incrementCounter(10)
+  // }
+
+  const changeCounterValue=()=>{
+
+    handleIncrement()
+
   }
 
   return (
@@ -32,10 +44,18 @@ function SettingScreen() {
 
         <NavBar/>
 
-        <h2>Welcome to SettingScreen</h2>
+        <h2>Welcome to SettingScreen  {currentState.name}</h2>
         <button onClick={handleModes}>Click to enable/disable the dark mode</button>
 
-        <button onClick={handleIncrement}>Count Increment</button>
+        {/* <button onClick={handleIncrement}>Count Increment</button> */}
+
+        <button onClick={changeCounterValue}>Count Increment useReducer</button>
+
+        <button onClick={handleDecrement}>Count decrement useReducer</button>
+
+        <button onClick={handleChangeName}>change name</button>
+
+        <button onClick={()=>{subjectAdd("Nest js")}}>Add new subject</button>
 
 
     </div>

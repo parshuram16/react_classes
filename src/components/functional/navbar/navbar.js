@@ -10,9 +10,11 @@ const NavBar=()=>{
 
   const {
     darkMode,
-    count
+    count,
+    currentState
 
   } = useContext(themeInfo)
+  console.log("currentState" , currentState)
   
 
   const linkStyle={
@@ -36,7 +38,7 @@ const NavBar=()=>{
       <li className="nav-item nav-link">
 
         <Link to={"/"}  style={linkStyle} >
-        {name}
+        {currentState.name}
         </Link>
         
       </li>
@@ -59,8 +61,9 @@ const NavBar=()=>{
 
       <li className="nav-item nav-link">
 
+
       <Link to={"/blog"} style={linkStyle} >
-       cart {count}
+       cart {count} useReducer count {currentState.count}
         </Link>
       
         
