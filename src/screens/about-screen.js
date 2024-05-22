@@ -3,6 +3,7 @@
 import React, { useContext } from 'react'
 import NavBar from '../components/functional/navbar/navbar'
 import { themeInfo } from '../navigations/navigations-stack'
+import UseMemoExample from '../components/functional/useMemo/useMemo'
 
 function AboutScreen() {
 
@@ -24,6 +25,11 @@ function AboutScreen() {
         }
 
   </ol>
+
+        <UseMemoExample/>
+
+        
+
     </div>
   )
 }
