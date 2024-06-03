@@ -3,47 +3,33 @@ import React, { useEffect, useState } from "react"
 import { checkArrayLengthExists } from "../../../utills/functions"
 import ImageComponent from "../image/image"
 import { Link } from "react-router-dom"
+import useAxios from "../customHooks/useAxios"
+import CircleSpinner from "../spinners/circlespinner"
 
 const UseEffect1=()=>{
 
-    const [todos,setTodos]=useState([])
-
-    //useEffect will trigger once (fetch data from server)
-    useEffect( ()=>{
-       
-        fetchData()
-
-    },[])
+    
+    const [todos,loading,error]=useAxios("https://dummyjson.com/products")
 
 
-
-
-    // to fecth all todos from server
-    const fetchData= async()=>{
-
-        const result = await axios.get("https://dummyjson.com/products")
-        console.log("result",result)
-
-        if(result.status === 200){
-            setTodos(result.data.products)
-        }
-        
+    if(loading){
+        return <CircleSpinner/>
     }
 
+    if(error){
+        <h2>something went wrong</h2>
+    }
 
-    
 
     return(
         <>
 
         <h2>use Effect Exaple</h2>
 
-        {
-            checkArrayLengthExists(todos)?
             <>
 
             {
-                todos.map( eachTodo=>{
+                todos.products?.map( eachTodo=>{
 
                     return(
 
@@ -67,9 +53,7 @@ const UseEffect1=()=>{
             }
             
             </>
-            :
-            null
-        }
+           
         
         </>
     )
