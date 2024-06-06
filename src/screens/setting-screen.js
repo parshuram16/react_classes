@@ -3,39 +3,24 @@
 
 import React, { useContext } from 'react'
 import NavBar from '../components/functional/navbar/navbar'
-import { themeInfo } from '../navigations/navigations-stack'
+import { useDispatch, useSelector } from 'react-redux'
+import { buyBookFunction, returnBookFunction } from '../redux/action'
+
 
 function SettingScreen() {
 
+  const dispatch =useDispatch()
+  const {bookCount} =useSelector((state)=>state);
 
-  const {
-    handleDarkLightModes,
-    incrementCounter,
-    handleIncrement,
-    handleDecrement,
-    currentState,
-    handleChangeName,
-    subjectAdd
+  const bookBuy=()=>{
 
-} =useContext(themeInfo)
-
-  const handleModes=()=>{
-
-    //control the state which is created globally
-
-    handleDarkLightModes()
-
+    dispatch(buyBookFunction())
 
   }
 
-  // const handleIncrement=()=>{
+  const bookReturn =()=>{
 
-  //   incrementCounter(10)
-  // }
-
-  const changeCounterValue=()=>{
-
-    handleIncrement()
+    dispatch(returnBookFunction())
 
   }
 
@@ -44,19 +29,11 @@ function SettingScreen() {
 
         <NavBar/>
 
-        <h2>Welcome to SettingScreen  {currentState.name}</h2>
-        <button onClick={handleModes}>Click to enable/disable the dark mode</button>
+        <button onClick={bookBuy}>BUY BOOK</button>
+        <button onClick={bookReturn}>RETURN BOOK</button>
+        <h2>Book count in library {bookCount}</h2>
 
-        {/* <button onClick={handleIncrement}>Count Increment</button> */}
-
-        <button onClick={changeCounterValue}>Count Increment useReducer</button>
-
-        <button onClick={handleDecrement}>Count decrement useReducer</button>
-
-        <button onClick={handleChangeName}>change name</button>
-
-        <button onClick={()=>{subjectAdd("Nest js")}}>Add new subject</button>
-
+        
 
     </div>
   )
