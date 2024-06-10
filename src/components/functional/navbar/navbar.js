@@ -1,6 +1,7 @@
 import { useContext } from "react"
 import { Link } from "react-router-dom"
 import { themeInfo, userInfo } from "../../../navigations/navigations-stack"
+import { useSelector } from "react-redux"
 
 
 
@@ -14,6 +15,8 @@ const NavBar=()=>{
     currentState
 
   } = useContext(themeInfo)
+
+  const {cart} = useSelector(state=>state.cart)
   console.log("currentState" , currentState)
   
 
@@ -63,7 +66,7 @@ const NavBar=()=>{
 
 
       <Link to={"/blog"} style={linkStyle} >
-       cart {count} useReducer count {currentState.count}
+       cart {cart.length} {" "}
         </Link>
       
         

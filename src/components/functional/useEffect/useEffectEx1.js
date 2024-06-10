@@ -1,64 +1,76 @@
-import axios from "axios"
-import React, { useEffect, useState } from "react"
-import { checkArrayLengthExists } from "../../../utills/functions"
-import ImageComponent from "../image/image"
-import { Link } from "react-router-dom"
-import useAxios from "../customHooks/useAxios"
-import CircleSpinner from "../spinners/circlespinner"
 
-const UseEffect1=()=>{
 
+
+
+import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
+import useAxios from "../customHooks/useAxios";
+
+import ImageComponent from "../image/image";
+import "./index.css";
+import CircleSpinner from "../spinners/circlespinner";
+import { useDispatch, useSelector } from "react-redux";
+import { productListingActions } from "../../../redux/products/action";
+import { addToCartAction } from "../../../redux/cart/action";
+
+const UseEffect1 = () => {
+  
+  //const [todos, loading, error] = useAxios("https://dummyjson.com/products");
+
+
+  const {products,loading}  =useSelector((state)=>state.products);
+
+  //console.log(reduxState,"reduxState")
+  const dispatch=useDispatch();
+
+  useEffect(()=>{
+
+    dispatch(productListingActions())
     
-    const [todos,loading,error]=useAxios("https://dummyjson.com/products")
+  },[])
 
 
-    if(loading){
-        return <CircleSpinner/>
-    }
+  if (loading) {
+    return <CircleSpinner />;
+  }
 
-    if(error){
-        <h2>something went wrong</h2>
-    }
+//   if (error) {
+//     return <h2>Something went wrong</h2>;
+//   }
 
+  const handleAddToCart = (product) => {
+    alert(`Added ${product.title} to cart!`);
+    dispatch(addToCartAction(product))
+  };
 
-    return(
-        <>
+  return (
+    <div className="product-list">
+      <h2>Use Effect Example</h2>
+      <div className="products">
+        {products?.map((eachTodo) => (
+          <div className="product-card" key={eachTodo.id}>
+            <h3>{eachTodo.title}</h3>
+            <ImageComponent src={eachTodo.thumbnail} />
+            <div className="product-details">
+              <p>{eachTodo.description}</p>
+              <p>Price: ${eachTodo.price}</p>
+              <button>
+                <Link to={`/${eachTodo.brand}/${eachTodo.id}`}>
+                  Click to view product
+                </Link>
+              </button>
+              <button
+                className="add-to-cart"
+                onClick={() => handleAddToCart(eachTodo)}
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
 
-        <h2>use Effect Exaple</h2>
-
-            <>
-
-            {
-                todos.products?.map( eachTodo=>{
-
-                    return(
-
-                        <React.Fragment key={eachTodo.id}>
-                        <h3>{eachTodo.title}</h3>
-
-                        <ImageComponent src={eachTodo.thumbnail}/>
-
-                        <button>
-
-                            <Link to={`/${eachTodo.brand}/${eachTodo.id}`}>
-                            Click to view product 
-                            </Link>
-                        </button>
-
-
-
-                        </React.Fragment>
-                    )
-                })
-            }
-            
-            </>
-           
-        
-        </>
-    )
-
-
-}
-
-export default UseEffect1
+export default UseEffect1;

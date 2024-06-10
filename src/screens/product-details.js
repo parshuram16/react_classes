@@ -1,14 +1,18 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { Container, Row, Col, Button, Spinner, Card } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css'; // Create and import a custom CSS file for styles
+import { useDispatch } from 'react-redux';
+import { addToCartAction } from '../redux/cart/action';
 
 function ProductDetails() {
   const { productID } = useParams();
   const [eachProduct, setEachProduct] = useState({});
   const [loading, setLoading] = useState(true);
+  const dispatch=useDispatch()
+  const navigate = useNavigate()
 
   useEffect(() => {
     fetchEachProduct();
@@ -31,6 +35,22 @@ function ProductDetails() {
         <Spinner animation="border" />
       </Container>
     );
+  }
+
+  const handleAddToCart=(product)=>{
+
+    console.log(product,"product")
+    dispatch(addToCartAction(product))
+
+  }
+
+  const goToCart=(product)=>{
+
+    console.log(product,"product")
+
+    navigate("/blog")
+    
+
   }
 
   return (
@@ -78,7 +98,22 @@ function ProductDetails() {
               <span>Category: {eachProduct.category}</span>
             </div>
             <div className="actions mt-3">
-              <Button variant="primary" className="mr-2">Add to Cart</Button>
+              {/* <Button variant="primary" className="mr-2">Add to Cart</Button> */}
+
+              <button
+                className="add-to-cart"
+                onClick={() => handleAddToCart(eachProduct)}
+              >
+                Add to Cart
+              </button>
+
+              <button
+                className="add-to-cart"
+                onClick={goToCart}
+              >
+                Go to Cart
+              </button>
+
               <Button variant="success">Buy Now</Button>
             </div>
           </div>
