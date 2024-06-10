@@ -1,7 +1,10 @@
+
+
 import { legacy_createStore } from "redux";
-import { reducerBookFuction } from "./reducer";
+import { singleReducer } from "./profile/singleReducer";
 
 
-export const reduxStore=legacy_createStore(reducerBookFuction)
+export const reduxStore=legacy_createStore(singleReducer)
+
 
 

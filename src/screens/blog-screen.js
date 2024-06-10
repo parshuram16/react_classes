@@ -8,12 +8,14 @@ import { useSelector } from 'react-redux';
 
 function BlogScreen() {
 
-  const {bookCount} =useSelector((state)=>state);
+  const reduxState  =useSelector((state)=>state);
+
+  console.log(reduxState,"reduxState")
 
   return (
     <div>
         <NavBar/>
-        <h1>Book Count {bookCount}</h1>
+        <h1>Book Count  </h1>
 
     </div>
   )
